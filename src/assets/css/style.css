@@ -1,0 +1,134 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+* {
+    font-family: Kanit, sans-serif;
+    box-sizing: border-box;
+}
+.header-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+.footer-con{
+    background-color: #eee;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.content-con{
+    min-height: 84vh;
+}
+
+.dialog-con{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background-color: rgba(0,0,0,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.toast-con{
+    position: fixed;
+    background: #fff;
+    color: #1fc7d4;
+    top: 10px;
+    left: 50px;
+    right: 10px;
+    padding: 15px 20px;
+    z-index: 999999;
+    border-radius: 16px;
+    font-size: 18px;
+    display: block !important;
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
+}
+.toast-con .title span{
+    float: right;
+    font-weight: lighter;
+    font-size: 24px;
+    transform: scaleY(.8);
+    margin-top: -5px;
+    margin-right: -5px;
+    padding: 0 5px;
+}
+.toast-con.error .title{
+    color: #ff0000;
+}
+.toast-con .sub-title{
+    color: #7a6eaa;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.loading-con{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, .6);
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.loading-con #LoadingConMsg{
+    font-size: 13px;
+    color: rgba(255, 255, 255, .6);
+    margin-top: 5px;
+}
+.loading-con::before{
+    display: block;
+    content: " ";
+    width: 50px;
+    height: 50px;
+    background-image: url("../images/loading.png");
+    background-size: 100% 100%;
+    background-position: center center;
+    opacity: .5;
+    -webkit-animation: rotate 1s linear infinite;
+    animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        transition: all 5s;
+    }
+}
+
+.no-data{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    min-height: 160px;
+    color: rgba(255, 255, 255, .6);
+}

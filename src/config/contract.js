@@ -1,0 +1,5 @@
+
+export default {
+    WBNB: '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    USDT: '0x337610d27c682E347C9cD60BD4b3b107C9d34dDd'
+}
