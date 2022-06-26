@@ -114,6 +114,8 @@ Contract.{{idx}}.{{iitem.methodName}}({{iitem.params}}).then(result => {
         position: fixed;
         top: 50px;
         left: 0;
+        bottom: 0;
+        background-color: #fff;
     }
     .left-tab-item{
         height: 40px;
@@ -151,5 +153,13 @@ Contract.{{idx}}.{{iitem.methodName}}({{iitem.params}}).then(result => {
     .brief span{
         display: block;
         margin-top: 10px;
+    }
+    @media screen and (max-width:750px){
+        .left-panel{
+            display: none;
+        }
+        .right-panel{
+            margin-left: 0;
+        }
     }
 </style>

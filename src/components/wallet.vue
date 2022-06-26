@@ -13,6 +13,9 @@
                     {{currentAccount.substring(0, 6)}} ... {{currentAccount.substring(currentAccount.length-6)}}
                 </i>
                 <i v-else>...</i>
+                <div class="close-btn" @click="showDialog = false">
+                    <svg t="1656154938278" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2196" width="200" height="200"><path d="M544.448 499.2l284.576-284.576a32 32 0 0 0-45.248-45.248L499.2 453.952 214.624 169.376a32 32 0 0 0-45.248 45.248l284.576 284.576-284.576 284.576a32 32 0 0 0 45.248 45.248l284.576-284.576 284.576 284.576a31.904 31.904 0 0 0 45.248 0 32 32 0 0 0 0-45.248L544.448 499.2z" p-id="2197"></path></svg>
+                </div>
             </div>
             <div class="balance-value" v-if="chainSymbol">
                 <label>{{chainSymbol}} Balance:</label>
@@ -238,11 +241,26 @@
         position: relative;
         height: 36px;
         margin: 10px 20px 0 20px;
-        padding-right: 20px;
         line-height: 36px;
         font-size: 13px;
         background-size: 100% 100%;
         color: rgb(122, 110, 170);
         border-bottom: 1px solid rgba(122, 110, 170, .2);
+
+        .close-btn{
+            float: right;
+            width: 30px;
+            height: 30px;
+            margin-right: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg{
+                width: 24px;
+                height: 24px;
+                fill: rgb(122, 110, 170);
+                flex-shrink: 0;
+            }
+        }
     }
 </style>

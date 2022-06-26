@@ -121,8 +121,8 @@ export default {
                 height: 12px;
             }
             svg{
-                width: 30px;
-                width: 30px;
+                width: 24px;
+                height: 24px;
                 fill: rgb(40, 13, 95);
                 flex-shrink: 0;
             }
