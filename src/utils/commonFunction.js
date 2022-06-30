@@ -213,7 +213,7 @@ function copyText(str){
     input.select()
     document.execCommand("Copy")
     document.body.removeChild(input)
-    UI.toast('Copy successful')
+    UI.toast(window.t('copy-success'))
 }
 
 /**

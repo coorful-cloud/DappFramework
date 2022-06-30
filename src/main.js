@@ -15,5 +15,6 @@ app.use(router)
 // i18n
 import i18n from './utils/language'
 app.use(i18n)
+window.t = i18n.global.t
 
 app.mount('#app')
