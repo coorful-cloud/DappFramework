@@ -33,6 +33,7 @@ Contract.WBNB.transfer(to, amount).then(res => {
                 {{testResultSend}}
             </div>
         </div>
+
     </div>
 </template>
 

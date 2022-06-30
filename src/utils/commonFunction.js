@@ -1,5 +1,10 @@
-import NetworkConfig from '../config/network'
+import NetworkConfig from '@/config/network'
+import UI from "@/utils/ui"
 
+/**
+ * 获取当前连接的网络
+ * @returns {Promise<null>}
+ */
 async function getCurrentNetwork(){
     const enable = window.web3 && window.web3.eth && typeof(window.web3.eth.getChainId) == 'function'
     const chainId = enable ? await window.web3.eth.getChainId() : null
@@ -17,11 +22,24 @@ async function getCurrentNetwork(){
     return network ? network : defaultNetwork
 }
 
+/**
+ * 消除精度
+ * @param balance
+ * @param decimals
+ * @param fixed
+ * @returns {string|*|number}
+ */
 function friendlyBalance(balance, decimals, fixed){
     balance = balance/(Math.pow(10, decimals))
     return fixed ? friendNum(balance, fixed) : balance
 }
 
+/**
+ * 给金额带上精度
+ * @param balance
+ * @param decimals
+ * @returns {string}
+ */
 function systemBalance(balance, decimals){
     balance = balance * (Math.pow(10, decimals))
     balance = (balance-0).toLocaleString()
@@ -29,6 +47,12 @@ function systemBalance(balance, decimals){
     return balance
 }
 
+/**
+ * 友好显示长数字
+ * @param v
+ * @param fix
+ * @returns {string|*}
+ */
 function friendNum(v, fix){
     if(!v){
         return v
@@ -53,6 +77,14 @@ function friendNum(v, fix){
     return (fix ? parseFloat(v).toFixed(fix) : v) + unitStr
 }
 
+/**
+ * 格式化字符串
+ * @param str
+ * @param first
+ * @param last
+ * @param replace
+ * @returns {string|*}
+ */
 function formatString(str, first, last, replace){
     if(!str || str.length < first + last){
         return str;
@@ -61,10 +93,21 @@ function formatString(str, first, last, replace){
     return str.substring(0, first) + replace +  str.substring(str.length-last)
 }
 
+/**
+ * 获取指定范围随机数
+ * @param min
+ * @param max
+ * @returns {number}
+ */
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+/**
+ * 判断是否0地址
+ * @param address
+ * @returns {boolean}
+ */
 function isZeroAddress(address){
     if(address == '0x0000000000000000000000000000000000000000'){
         return true
@@ -78,6 +121,11 @@ function isZeroAddress(address){
     return false
 }
 
+/**
+ * 解析TRC地址
+ * @param address
+ * @returns {*}
+ */
 function parseAddress(address){
     const web3 = window.web3
     if(web3.trx){
@@ -86,6 +134,11 @@ function parseAddress(address){
     return address
 }
 
+/**
+ * 数字转BigNumber
+ * @param val
+ * @returns {*}
+ */
 function toBigNumber(val){
     const web3 = window.web3
     if(web3.trx){
@@ -94,6 +147,11 @@ function toBigNumber(val){
     return val
 }
 
+/**
+ * 时间戳转日期
+ * @param timestamp
+ * @returns {string}
+ */
 function getDate(timestamp){
     const date = timestamp ? new Date(timestamp*1000) : new Date();
     const year = date.getFullYear();
@@ -108,10 +166,65 @@ function getDate(timestamp){
     return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second
 }
 
+/**
+ * 延时
+ * @param delay 毫秒数
+ */
 function sleep(delay) {
     const start = (new Date()).getTime();
     while ((new Date()).getTime() - start < delay) {
         continue
+    }
+}
+
+/**
+ * 深度克隆对象
+ * @param Obj
+ * @returns {{}|*[]|*}
+ */
+function clone(Obj){
+    let buf;
+    if(Obj instanceof Array){
+        buf = [];
+        let i = Obj.length;
+        while(i--){
+            buf[i] = clone(Obj[i]);
+        }
+        return buf;
+    } else if(Obj instanceof Object){
+        buf = {};
+        for(let k in Obj){
+            buf[k] = clone(Obj[k]);
+        }
+        return buf;
+    }else{
+        return Obj;
+    }
+}
+
+/**
+ * 复制字符串
+ * @param str
+ */
+function copyText(str){
+    const input = document.createElement("input")
+    input.value = str
+    document.body.appendChild(input)
+    input.select()
+    document.execCommand("Copy")
+    document.body.removeChild(input)
+    UI.toast('Copy successful')
+}
+
+/**
+ * 切换语言
+ * @param lang
+ */
+function switchLanguage(lang){
+    const messages = require('@/config/language').default
+    if(messages[lang]){
+        localStorage.setItem('lang', lang)
+        window.location.reload()
     }
 }
 
@@ -126,5 +239,8 @@ export default {
     parseAddress,
     toBigNumber,
     getDate,
-    sleep
+    sleep,
+    clone,
+    copyText,
+    switchLanguage
 }

@@ -12,5 +12,8 @@ app.use(store)
 // router
 import router from './router'
 app.use(router)
+// i18n
+import i18n from './utils/language'
+app.use(i18n)
 
 app.mount('#app')
