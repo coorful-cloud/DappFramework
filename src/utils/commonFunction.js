@@ -170,12 +170,7 @@ function getDate(timestamp){
  * 延时
  * @param delay 毫秒数
  */
-function sleep(delay) {
-    const start = (new Date()).getTime();
-    while ((new Date()).getTime() - start < delay) {
-        continue
-    }
-}
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 /**
  * 深度克隆对象
@@ -228,6 +223,22 @@ function switchLanguage(lang){
     }
 }
 
+/**
+ * 判断字符串是否时json格式
+ * @param str
+ * @returns {boolean}
+ */
+function isJSON(str) {
+    try {
+        if(typeof str == "object"){
+            return true;
+        }else if (typeof JSON.parse(str) == "object") {
+            return true;
+        }
+    } catch(e) {}
+    return false;
+}
+
 export default {
     getCurrentNetwork,
     friendlyBalance,
@@ -242,5 +253,6 @@ export default {
     sleep,
     clone,
     copyText,
-    switchLanguage
+    switchLanguage,
+    isJSON
 }
