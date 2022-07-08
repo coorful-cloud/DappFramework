@@ -9,9 +9,9 @@ DappFramework 基于web3.js，集成了web3modal钱包模块，前端集成Vant3
 
 #### 安装教程
 
-1.  git clone https://github.com/coorful-cloud/DappFramework.git
-2.  npm install 或者 cnpm install (*安装依赖过程中可能会出错，请切换镜像源再试)
-3.  npm run serve
+1. git clone https://github.com/coorful-cloud/DappFramework.git
+2. npm install 或者 cnpm install (*安装依赖过程中可能会出错，请切换镜像源再试)
+3. npm run serve
 
 #### 使用说明
 
@@ -24,3 +24,7 @@ DappFramework 基于web3.js，集成了web3modal钱包模块，前端集成Vant3
 2.  新建 Feat_xxx 分支
 3.  提交代码
 4.  新建 Pull Request
+
+加作者微信，免费获取视频教程。
+
+<img src="https://www.web3dapp.club/static/template1/images/wxgzh.jpg" width="150px">
