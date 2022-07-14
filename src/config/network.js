@@ -23,6 +23,7 @@ export default {
         rpcUrl: 'https://data-seed-prebsc-2-s3.binance.org:8545/',
         scanUrl: 'https://testnet.bscscan.com/'
     },
+    // 使用TRC网络时请在config/wallet.js配置中去除custom-tl配置项的注释
     trc: {
         default: false,
         network: "mainnet",
@@ -43,6 +44,7 @@ export default {
     }
 }
 
+// 以下配置待集成，当前不可用
 const supportedChains = [
     {
         name: "Ethereum Mainnet",

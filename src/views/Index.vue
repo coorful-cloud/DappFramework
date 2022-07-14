@@ -34,11 +34,24 @@ Contract.WBNB.transfer(to, amount).then(res => {
             </div>
         </div>
 
+        <div>
+            <div class="title">发送BNB</div>
+            <div class="code">
+                <pre>
+const to = '0xC53ec510525CF8E7cC38D5657fd58E9De58d2441'
+const amount = CommonFunction.systemBalance(0.01, 18)
+CommonFunction.transfer(to, amount)
+                </pre>
+            </div>
+            <div class="btn" @click="tryTestSendBNB">试一下</div>
+        </div>
+
     </div>
 </template>
 
 <script>
 import UI from "@/utils/ui";
+import CommonFunction from "@/utils/commonFunction";
 export default {
     data() {
         return {
@@ -71,6 +84,11 @@ export default {
                 UI.closeLoading()
                 console.log(err)
             })
+        },
+        async tryTestSendBNB(){
+            const to = '0xC53ec510525CF8E7cC38D5657fd58E9De58d2441'
+            const amount = CommonFunction.systemBalance(0.01, 18)
+            CommonFunction.transfer(to, amount)
         }
     }
 }

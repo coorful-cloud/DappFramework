@@ -239,6 +239,27 @@ function isJSON(str) {
     return false;
 }
 
+/**
+ * 转出链币（BNB，TRX等）
+ * @param to
+ * @param amount
+ */
+function transfer(to, amount) {
+    const web3 = window.web3
+    if(window.web3.trx){
+        web3.trx.sendTransaction(to, amount);
+    } else if(window.web3.eth) {
+        web3.eth.sendTransaction({
+            from: window.connectedAddress,
+            to,
+            value:amount
+        }, (err, res)=>{
+            if(err)console.log("err: ", err);
+            else console.log("res: ", res);
+        });
+    }
+}
+
 export default {
     getCurrentNetwork,
     friendlyBalance,
@@ -254,5 +275,6 @@ export default {
     clone,
     copyText,
     switchLanguage,
-    isJSON
+    isJSON,
+    transfer
 }

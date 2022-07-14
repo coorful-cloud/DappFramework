@@ -13,6 +13,7 @@ async function connect(flag){
         if(!providerOptions[i].options){
             continue
         }
+        console.log(providerOptions)
         providerOptions[i].options.chainId = networkConfig.chainId
         if(networkConfig.rpcs){
             providerOptions[i].options.rpc = networkConfig.rpcs
