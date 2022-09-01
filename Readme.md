@@ -1,11 +1,38 @@
 # DappFramework
 
+#### Introduce
+DappFramework is a very simple and lightweight framework for rapid development of Dapp.
+
+#### Software Architecture
+DappFramework is based on web3.js, integrates the web3modal wallet module, and integrates Vant3 in the front end. The current version 1.0 supports BSC and TRC networks.
+
+#### Installation tutorial
+1. git clone https://github.com/coorful-cloud/DappFramework.git
+2. npm install OR cnpm install (*Errors may occur during installation, please reinstall the mirror source and try again)
+3. npm run serve
+
+#### Instructions for use
+1.  This framework follows the MIT protocol, is completely open source, is only for learning, and is strictly prohibited for illegal purposes;
+2.  You are welcome to put forward valuable opinions and suggestions, and contribute your own code to improve this framework together.
+
+#### Participate and contribute
+1.  Fork this repository
+2.  New Feat_xxx branch
+3.  Submit code
+4.  New Pull Request
+
+Contact the author
+Email: color_sea@outlook.com
+
+#### ------------------------------- split line ---------------------------------
+
+# DappFramework
+
 #### 介绍
 DappFramework 是一个极简的用于快速开发Dapp的轻量级框架
 
 #### 软件架构
 DappFramework 基于web3.js，集成了web3modal钱包模块，前端集成Vant3，当前1.0版本支持BSC、TRC网络。
-
 
 #### 安装教程
 
