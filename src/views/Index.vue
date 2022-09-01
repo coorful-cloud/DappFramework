@@ -46,6 +46,25 @@ CommonFunction.transfer(to, amount)
             <div class="btn" @click="tryTestSendBNB">试一下</div>
         </div>
 
+        <div>
+            <div class="title">链式调用发送BNB</div>
+            <div class="code">
+                <pre>
+const amount = CommonFunction.systemBalance(0.001, 18)
+Contract.WBNB.send(amount).deposit().then(res => {
+    console.log(res)
+}).catch(err => {
+    console.log(err)
+})
+                </pre>
+            </div>
+            <div class="btn" @click="tryTestDeposit">试一下</div>
+            <div class="result" v-if="testResultSend != null">
+                result: <br/>
+                {{testResultSend}}
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -89,6 +108,14 @@ export default {
             const to = '0xC53ec510525CF8E7cC38D5657fd58E9De58d2441'
             const amount = CommonFunction.systemBalance(0.01, 18)
             CommonFunction.transfer(to, amount)
+        },
+        async tryTestDeposit(){
+            const amount = CommonFunction.systemBalance(0.001, 18)
+            Contract.WBNB.send(amount).deposit().then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.log(err)
+            })
         }
     }
 }

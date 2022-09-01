@@ -199,7 +199,8 @@ async function _getSend(callValue){
         const gasPrice = await window.web3.eth.getGasPrice()
         sendData = {
             from: store.state.currentAccount,
-            gasPrice: gasPrice ? gasPrice : window.web3.utils.toWei((15) + '', 'gwei')
+            gasPrice: gasPrice ? gasPrice : window.web3.utils.toWei((15) + '', 'gwei'),
+            value: callValue ? callValue : 0
         }
     } else if(web3.trx){
         sendData = {

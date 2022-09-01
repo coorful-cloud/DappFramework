@@ -17,7 +17,7 @@ export default {
             },
             package: WalletConnectProvider,
             options: {
-                infuraId: '943ef55ba08a4eea81f50566f11263ec'
+                infuraId: '943ef55ba08a4eea81f5056jsrjyrs3ec'
             }
         },
         // 使用TRC网络时删除以下注释
