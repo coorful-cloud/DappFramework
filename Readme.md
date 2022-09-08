@@ -21,7 +21,7 @@ DappFramework is based on web3.js, integrates the web3modal wallet module, and i
 3.  Submit code
 4.  New Pull Request
 
-Contact the author,Email: color_sea@outlook.com
+Contact the author,Email: cloud_sea@outlook.com
 
 #### ------------------------------- split line ---------------------------------
 
